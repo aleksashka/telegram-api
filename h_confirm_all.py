@@ -38,11 +38,13 @@ for update in response['result']:
     print(f'Replying to {user_id}... ', end='')
     response = requests.get(url_send_message, params=params).json()
     print('OK' if response['ok'] else 'Fail')
-#     max_update_id = max(update['update_id'], max_update_id)
-# if max_update_id:
-#     print('Confirming all processed messages... ', end='')
-#     params = {
-#         'offset': max_update_id + 1,
-#     }
-#     response = requests.get(url_get_updates, params=params).json()
-#     print('OK' if response['ok'] else 'Fail')
+    max_update_id = max(update['update_id'], max_update_id)
+
+if 0:  # Change to 1 to 'uncomment' the code below
+    if max_update_id:
+        print('Confirming all processed messages... ', end='')
+        params = {
+            'offset': max_update_id + 1,
+        }
+        response = requests.get(url_get_updates, params=params).json()
+        print('OK' if response['ok'] else 'Fail')
