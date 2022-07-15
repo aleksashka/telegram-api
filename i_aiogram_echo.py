@@ -8,7 +8,7 @@ dp = Dispatcher(bot)
 
 @dp.message_handler(commands=['start', 'help'])
 async def send_welcome(message: types.Message):
-    await message.reply(f'"Hi, {message.from_user.id}!')
+    await message.reply(f'Hi, {message.from_user.id}!')
 
 
 @dp.message_handler()
